@@ -30,7 +30,7 @@ mkdir -p out
 cp -af magisk-module out
 mv -fT native/libs out/magisk-module/libs
 
-FRIDA_VERSION="17.5.1"
+FRIDA_VERSION="16.7.9"
 TEMP_DIR=$(mktemp -d)
 OUT_DIR="out/magisk-module/libs"
 
