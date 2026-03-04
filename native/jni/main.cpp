@@ -83,21 +83,19 @@ void ProcessBuffer(struct logger_entry *buf) {
     char process_name[4098];
     snprintf(process_name, sizeof(process_name), "%.*s", am_proc_start->process_name.length, am_proc_start->process_name.data);
 
-    std::string jsfile_path = "/data/misc/user/0/frida-inject/" + std::string(process_name) + ".js";
+    std::string jsfile_path = "/data/local/tmp/fi/" + std::string(process_name) + ".js";
 
     std::ifstream jsfile(jsfile_path.c_str());
     LOGD("Try to load %s", jsfile_path.c_str());
     if (jsfile.is_open())
     {
+        LOGD("Loaded %s", jsfile_path.c_str());
         jsfile.close();
-
         pid_t pid = am_proc_start->pid.data;
         std::string pid_str = std::to_string(pid);
-
         std::string command = "/system/bin/frida-inject -p " + pid_str + " -s " + jsfile_path + " -R v8 -e";
         LOGD("Execute command: %s", command.c_str());
         system(command.c_str());
-        LOGD("Loaded %s", jsfile_path.c_str());
     }
 }
 
