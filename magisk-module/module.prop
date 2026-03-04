@@ -1,6 +1,6 @@
-id=magisk-frida-inject
-name=Magisk Frida Inject
-author=nitanmarcel
+id=x-frida-inject
+name=X Frida Inject
+author=X
 version=1.0
 versionCode=1
-description=Magisk module installing frida-inject with optional functionality to auto inject scripts at app startup
+description=X Frida Inject

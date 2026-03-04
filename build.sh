@@ -30,11 +30,11 @@ mkdir -p out
 cp -af magisk-module out
 mv -fT native/libs out/magisk-module/libs
 
-FRIDA_VERSION="16.1.2"
+FRIDA_VERSION="17.5.1"
 TEMP_DIR=$(mktemp -d)
 OUT_DIR="out/magisk-module/libs"
 
-declare -A arch_dirs=(["arm"]="armeabi-v7a" ["arm64"]="arm64-v8a" ["x86"]="x86" ["x86_64"]="x86_64")
+declare -A arch_dirs=(["arm64"]="arm64-v8a")
 
 for arch in "${!arch_dirs[@]}"; do
     wget -P "${TEMP_DIR}" "https://github.com/frida/frida/releases/download/$FRIDA_VERSION/frida-inject-$FRIDA_VERSION-android-$arch.xz"
