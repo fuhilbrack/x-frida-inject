@@ -4,12 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: [ master ]
-  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
 
     steps:
     - name: Checkout
@@ -30,5 +28,5 @@ jobs:
     - name: Upload release
       uses: actions/upload-artifact@v3
       with:
-        name: magisk-module-release
+        name: x-module-release
         path: out/magisk-module
